@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Edit Show {{showobj.id}}</h1>
+    <a href="/shows">Go Back</a>
+    <form action="/shows/{{showobj.id}}/update" method="post">
+        {% csrf_token %}
+    <p>Title: <input type="text" name="t" id=""value= {{showobj.title}}></p>
+    <p>Network: <input type="text" name="nw" id=""value= {{showobj.network}}></p>
+    <p>Release Date: <input type="date" name="rd" id=""></p>
+    <p>Description: <textarea name="desc" id="" cols="30" rows="10">{{showobj.description}}</textarea></p>
+    <p><input type="submit" value="update"></p>
+</form>
+    <a href="/shows/{{showobj.id}}">Go to Show</a>
+</body>
+</html>

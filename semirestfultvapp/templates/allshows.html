@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+    </style>
+
+
+<body>
+    <h1>All Shows</h1>
+    <table>
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Network</th>
+          <th>Release Date</th>
+          <th>Action</th>
+
+        </tr>
+        {% for showobj in themshows %}
+        <tr>
+            <td>{{showobj.id}}</td>
+            <td>{{showobj.title}}</td>
+            <td>{{showobj.network}}</td>
+            <td>{{showobj.release_date}}</td>
+            <td><a href="/shows/{{showobj.id}}">Show</a> | <a href="/shows/{{showobj.id}}/edit">Edit</a> | <a href="/shows/{{showobj.id}}/destroy">Delete</a></td>
+            
+        </tr>
+        {% endfor %}
+        
+      </table>
+      
+      
+   
+    
+    <a href="/shows/new">Add a New Show</a>
+    
+</body>
+</html>
